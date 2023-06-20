@@ -1,0 +1,11 @@
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.csproj.AssemblyReference.cache
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.csproj.SuggestedBindingRedirects.cache
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.FrmConsultaPaciente.resources
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.Properties.Resources.resources
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.csproj.GenerateResource.cache
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.csproj.CoreCompileInputs.cache
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\bin\Debug\ConsultarPacientes.exe.config
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\bin\Debug\ConsultarPacientes.exe
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\bin\Debug\ConsultarPacientes.pdb
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.exe
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.pdb
