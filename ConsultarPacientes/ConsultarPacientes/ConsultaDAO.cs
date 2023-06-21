@@ -99,6 +99,51 @@ namespace ConsultarPacientes
                 return consultas;
             }
         }
+        public int ContaAltas()
+        {
+            using (SqlCommand command = Connection.CreateCommand())
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.AppendLine($"SELECT COUNT(situacao) FROM mvtHospCadPac WHERE situacao = 'Alta'");
+                command.CommandText = sql.ToString();
+                int countAlta = Convert.ToInt32(command.ExecuteScalar());
+                return countAlta;
+            }
+        }  
+        public int ContaObitos()
+        {
+            using (SqlCommand command = Connection.CreateCommand())
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.AppendLine($"SELECT COUNT(situacao) FROM mvtHospCadPac WHERE situacao = 'Óbito'");
+                command.CommandText = sql.ToString();
+                int countObitos = Convert.ToInt32(command.ExecuteScalar());
+                return countObitos;
+            }
+        }      
+        public int ContaInternados()
+        {
+            using (SqlCommand command = Connection.CreateCommand())
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.AppendLine($"SELECT COUNT(situacao) FROM mvtHospCadPac WHERE situacao = 'Internado'");
+                command.CommandText = sql.ToString();
+                int countInternado = Convert.ToInt32(command.ExecuteScalar());
+                return countInternado;
+            }
+        }      
+        public int ContaEvasoes()
+        {
+            using (SqlCommand command = Connection.CreateCommand())
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.AppendLine($"SELECT COUNT(situacao) FROM mvtHospCadPac WHERE situacao = 'Evasão'");
+                command.CommandText = sql.ToString();
+                int countEvasoes = Convert.ToInt32(command.ExecuteScalar());
+                return countEvasoes;
+            }
+        }
+
         private ConsultaModel PopulateDr(SqlDataReader dr)
         {
             ConsultaModel model = new ConsultaModel();

@@ -137,5 +137,11 @@ namespace ConsultarPacientes
             mskRg.MaxLength = 9;
             mskCpf.MaxLength = 11;
         }
+
+        private void btnGrafico_Click(object sender, EventArgs e)
+        {
+            FrmGrafico grafico = new FrmGrafico();
+            grafico.Show();
+        }
     }
 }
