@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -45,6 +46,45 @@ namespace ConsultarPacientes
                     sql2.AppendLine("AND r.codProntuario LIKE '%' + @prontuario + '%'");
                     command.Parameters.AddWithValue("@prontuario", consulta.prontuario);
                 }
+
+                if (!string.IsNullOrEmpty(consulta.alta) || !string.IsNullOrEmpty(consulta.evasao) || !string.IsNullOrEmpty(consulta.internado) || !string.IsNullOrEmpty(consulta.obito))
+                {
+                    sql2.AppendLine("AND (");
+                    bool isConditionAdded = false;
+
+                    if (!string.IsNullOrEmpty(consulta.alta))
+                    {
+                        sql2.AppendLine("r.situacao LIKE '%' + @alta + '%'");
+                        command.Parameters.AddWithValue("@alta", consulta.alta);
+                        isConditionAdded = true;
+                    }
+                    if (!string.IsNullOrEmpty(consulta.evasao))
+                    {
+                        if (isConditionAdded)
+                            sql2.AppendLine("OR");
+                        sql2.AppendLine("r.situacao LIKE '%' + @evasao + '%'");
+                        command.Parameters.AddWithValue("@evasao", consulta.evasao);
+                        isConditionAdded = true;
+                    }
+                    if (!string.IsNullOrEmpty(consulta.internado))
+                    {
+                        if (isConditionAdded)
+                            sql2.AppendLine("OR");
+                        sql2.AppendLine("r.situacao LIKE '%' + @internado + '%'");
+                        command.Parameters.AddWithValue("@internado", consulta.internado);
+                        isConditionAdded = true;
+                    }
+                    if (!string.IsNullOrEmpty(consulta.obito))
+                    {
+                        if (isConditionAdded)
+                            sql2.AppendLine("OR");
+                        sql2.AppendLine("r.situacao LIKE '%' + @obito + '%'");
+                        command.Parameters.AddWithValue("@obito", consulta.obito);
+                    }
+
+                    sql2.AppendLine(")");
+                }
+
                 command.Parameters.AddWithValue("@exibir", consulta.exibir);
                 command.CommandText = sql2.ToString();
 
@@ -55,9 +95,9 @@ namespace ConsultarPacientes
                         consultas.Add(PopulateDr(dr));
                     }
                 }
+
                 return consultas;
             }
-
         }
         private ConsultaModel PopulateDr(SqlDataReader dr)
         {
@@ -69,15 +109,25 @@ namespace ConsultarPacientes
             }
             if (DBNull.Value != dr["rgPaciente"])
             {
-                model.rg = dr["rgPaciente"].ToString();
+                string rg = dr["rgPaciente"].ToString();
+                if (rg.Length == 9)
+                {
+                    rg = $"{rg.Substring(0, 2)}.{rg.Substring(2, 3)}.{rg.Substring(5, 3)}-{rg.Substring(8)}";
+                }
+                model.rg = rg;
             }
             if (DBNull.Value != dr["cpfPaciente"])
             {
-                model.cpf = dr["cpfPaciente"].ToString();
+                string cpf = dr["cpfPaciente"].ToString();
+                if (cpf.Length == 11)
+                {
+                    cpf = $"{cpf.Substring(0, 3)}.{cpf.Substring(3, 3)}.{cpf.Substring(6, 3)}-{cpf.Substring(9)}";
+                }
+                model.cpf = cpf;
             }
             if (DBNull.Value != dr["dataNascPaciente"])
             {
-                model.dataNasc = dr["dataNascPaciente"].ToString();
+                model.dataNasc = dr["dataNascPaciente"].ToString().Substring(0, 10);
             }
             if (DBNull.Value != dr["nomeMaePaciente"])
             {

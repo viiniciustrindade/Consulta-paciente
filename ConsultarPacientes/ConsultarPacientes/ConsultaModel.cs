@@ -15,8 +15,12 @@ namespace ConsultarPacientes
         public string mae { get; set; }
         public string prontuario { get; set; }
         public string localizacao { get; set; }
-        public string leito { get; set; }
         public string situacao { get; set; }
+        public string leito { get; set; }
+        public string alta { get; set; }
+        public string obito { get; set; }
+        public string evasao { get; set; }
+        public string internado { get; set; }
         public int exibir { get; set; }
     }
 }
