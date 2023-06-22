@@ -32,3 +32,4 @@ C:\Users\vinic\OneDrive\Documentos\Consulta-paciente\ConsultarPacientes\Consulta
 C:\Users\vinic\OneDrive\Documentos\Consulta-paciente\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.csproj.CoreCompileInputs.cache
 C:\Users\vinic\OneDrive\Documentos\Consulta-paciente\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.exe
 C:\Users\vinic\OneDrive\Documentos\Consulta-paciente\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.pdb
+C:\Users\estagiario3\Desktop\Movtech-projeto-hospital\movtech-Consulta-paciente\ConsultarPacientes\ConsultarPacientes\obj\Debug\ConsultarPacientes.FrmGrafico.resources
