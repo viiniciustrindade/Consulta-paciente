@@ -49,7 +49,7 @@ namespace ConsultarPacientes
 
                 int internados = dao.ContaInternados();
                 chart1.Series["Situações"].Points.AddXY("Internados", internados);
-                chart1.Series["Situações"].Points[1].Color = Color.Yellow;
+                chart1.Series["Situações"].Points[1].Color = Color.Blue;
                 chart1.Series["Situações"].Points[1].Label = internados.ToString();
 
                 int evasoes = dao.ContaEvasoes();
@@ -61,6 +61,7 @@ namespace ConsultarPacientes
                 chart1.Series["Situações"].Points.AddXY("Óbitos", obitos);
                 chart1.Series["Situações"].Points[3].Color = Color.Black;
                 chart1.Series["Situações"].Points[3].Label = obitos.ToString();
+
             }
         }
     }

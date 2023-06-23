@@ -65,6 +65,7 @@ namespace ConsultarPacientes
             }
             return checkBox;
         }
+
         private string CheckBoxInternado()
         {
             string checkBox;

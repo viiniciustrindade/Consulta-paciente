@@ -22,7 +22,7 @@ namespace ConsultarPacientes
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql2 = new StringBuilder();
-                sql2.AppendLine("SELECT TOP (@exibir) p.nomePaciente, p.rgPaciente, p.cpfPaciente, p.dataNascPaciente, p.nomeMaePaciente, r.codProntuario, r.localizacao, r.leito, r.situacao");
+                sql2.AppendLine("SELECT TOP (@exibir) p.nomePaciente, p.rgPaciente, p.cpfPaciente, p.dataNascPaciente, p.nomeMaePaciente, r.codProntuario, r.localizacao, r.leito, p.situacao");
                 sql2.AppendLine("FROM mvtHospCadPac p INNER JOIN mvtHospRegInt r ON p.codPaciente = r.codPaciente");
                 sql2.AppendLine("WHERE 1 = 1");
 
@@ -54,7 +54,7 @@ namespace ConsultarPacientes
 
                     if (!string.IsNullOrEmpty(consulta.alta))
                     {
-                        sql2.AppendLine("r.situacao LIKE '%' + @alta + '%'");
+                        sql2.AppendLine("p.situacao LIKE '%' + @alta + '%'");
                         command.Parameters.AddWithValue("@alta", consulta.alta);
                         isConditionAdded = true;
                     }
@@ -62,7 +62,7 @@ namespace ConsultarPacientes
                     {
                         if (isConditionAdded)
                             sql2.AppendLine("OR");
-                        sql2.AppendLine("r.situacao LIKE '%' + @evasao + '%'");
+                        sql2.AppendLine("p.situacao LIKE '%' + @evasao + '%'");
                         command.Parameters.AddWithValue("@evasao", consulta.evasao);
                         isConditionAdded = true;
                     }
@@ -70,7 +70,7 @@ namespace ConsultarPacientes
                     {
                         if (isConditionAdded)
                             sql2.AppendLine("OR");
-                        sql2.AppendLine("r.situacao LIKE '%' + @internado + '%'");
+                        sql2.AppendLine("p.situacao LIKE '%' + @internado + '%'");
                         command.Parameters.AddWithValue("@internado", consulta.internado);
                         isConditionAdded = true;
                     }
@@ -78,9 +78,9 @@ namespace ConsultarPacientes
                     {
                         if (isConditionAdded)
                             sql2.AppendLine("OR");
-                        sql2.AppendLine("r.situacao LIKE '%' + @obito + '%'");
+                        sql2.AppendLine("p.situacao LIKE '%' + @obito + '%'");
                         command.Parameters.AddWithValue("@obito", consulta.obito);
-                    }
+                    }  
 
                     sql2.AppendLine(")");
                 }
@@ -131,7 +131,7 @@ namespace ConsultarPacientes
                 int countInternado = Convert.ToInt32(command.ExecuteScalar());
                 return countInternado;
             }
-        }      
+        }       
         public int ContaEvasoes()
         {
             using (SqlCommand command = Connection.CreateCommand())

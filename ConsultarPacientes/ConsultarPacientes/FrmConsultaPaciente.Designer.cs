@@ -98,7 +98,7 @@
             this.dadosGrid.ReadOnly = true;
             this.dadosGrid.RowHeadersWidth = 51;
             this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dadosGrid.Size = new System.Drawing.Size(492, 160);
+            this.dadosGrid.Size = new System.Drawing.Size(492, 208);
             this.dadosGrid.TabIndex = 32;
             // 
             // colNomePaciente
@@ -335,7 +335,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 331);
+            this.ClientSize = new System.Drawing.Size(514, 379);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtExibir);
             this.Controls.Add(this.mskRg);
