@@ -38,6 +38,8 @@ namespace ConsultarPacientes
             chart1.Series["Situações"].CustomProperties = "PointWidth=0.6";
 
             chart1.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0";
+            chart1.ChartAreas[0].AxisY.Interval = 1;
 
             using (SqlConnection connection = DaoConnection.GetConexao())
             {
@@ -61,8 +63,8 @@ namespace ConsultarPacientes
                 chart1.Series["Situações"].Points.AddXY("Óbitos", obitos);
                 chart1.Series["Situações"].Points[3].Color = Color.Black;
                 chart1.Series["Situações"].Points[3].Label = obitos.ToString();
-
             }
         }
+
     }
 }
